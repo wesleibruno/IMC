@@ -29,7 +29,6 @@ form.addEventListener('submit', function(e){
     const msg = `Seu IMC é ${imc} (${nivelImc}).`;
 
     setResultado(msg, true);
-    // console.log(imc, nivelImc);
 });
 
 function getNivelImc (imc) {
@@ -56,9 +55,10 @@ function criaP () {
 
 function setResultado (msg, isValid) {
     const resultado = document.querySelector('#resultado');
+    // resultado.style.display = 'block';
+    
     resultado.innerHTML = '';
-    
-    
+
     const p = criaP ();
     
     if (isValid) {
@@ -69,4 +69,23 @@ function setResultado (msg, isValid) {
 
     p.innerHTML = msg;
     resultado.appendChild(p);
+}
+    
+function limparImc() {
+    if(document.getElementById('peso').value!="" || document.getElementById('altura').value!="") {
+        document.getElementById('altura').value = '';
+        document.getElementById('peso').value= '';
+        // const div = document.querySelector('#resultado');
+        // let div1 = div.style.display = "none";
+        // if(div1 == "none") {
+        //     div1 = div.style.display = "inline-block";
+        // }
+        
+    }
+        const el = document.getElementById('resultado').style.display;
+        if(el == "none"){
+            document.getElementById(el).style.display = 'block';
+        }else{
+            document.getElementById(el).style.display = 'none';
+        }
 }
